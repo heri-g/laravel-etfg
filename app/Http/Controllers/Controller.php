@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Post;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User; /* User model */
@@ -63,15 +64,136 @@ public function update(Request $request, $user_id)
     }       
 }      
 }
-class ExampleController extends Controller
+class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::get();
+        $posts = DB::select('select * from users');
 
         return response()->success(compact('posts'));
     
     }
 }
 
+class FirmsController extends Controller
+{
+    public function index()
+    {
+        $firms = DB::select('select * from firms');
 
+        return response()->success(compact('firms'));
+
+    }
+}
+
+class ProductsController extends Controller
+{
+    public function index()
+    {
+        $products = DB::select('select * from products');
+
+        return response()->success(compact('products'));
+
+    }
+}
+class ViewsController extends Controller
+{
+    public function index()
+    {
+        $views = DB::select('select * from views where id <99999');
+
+        return response()->success(compact('posts'));
+
+    }
+}
+class ActionTypesController extends Controller
+{
+    public function index()
+    {
+        $actionTypes = DB::select('select * from action_types');
+
+        return response()->success(compact('action-types'));
+
+    }
+}
+class ActionsController extends Controller
+{
+    public function index()
+        {
+            $actions = DB::select('select * from actions where id <99999');
+
+            return response()->success(compact('actions'));
+
+        }
+}
+
+class IpCitiesController extends Controller
+{
+    public function index()
+        {
+            $cities = DB::select('select * from ip_cities');
+
+            return response()->success(compact('cities'));
+
+        }
+}
+class IpCountriesController extends Controller
+{
+    public function index()
+        {
+            $countries = DB::select('select * from ip_countries');
+
+            return response()->success(compact('countries'));
+
+        }
+}
+class IpStatesController extends Controller
+{
+    public function index()
+        {
+            $states = DB::select('select * from ip_states');
+
+            return response()->success(compact('ip-states'));
+
+        }
+}
+class IpAddressesController extends Controller
+{
+    public function index()
+        {
+            $addresses = DB::select('select * from ip_addresses');
+
+            return response()->success(compact('ip-addresses'));
+
+        }
+}
+class MigrationsController extends Controller
+{
+    public function index()
+        {
+            $migrations = DB::select('select * from migrations');
+
+            return response()->success(compact('migrations'));
+
+        }
+}
+class UserActionsController extends Controller
+{
+    public function index()
+        {
+            $useractions = DB::select('select * from user_actions');
+
+            return response()->success(compact('user-actions'));
+
+        }
+}
+class UsersController extends Controller
+{
+    public function index()
+        {
+            $users = DB::select('select * from users');
+
+            return response()->success(compact('users'));
+
+        }
+}

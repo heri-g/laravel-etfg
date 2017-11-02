@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 
-class ExampleController extends Controller
+class ViewController extends Controller
 {
-    //
+   //
 }

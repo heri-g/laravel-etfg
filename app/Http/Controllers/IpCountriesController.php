@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 
-class FirmController extends Controller
+class IpCountryController extends Controller
 {
     public function index()
     {
