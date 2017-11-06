@@ -14,8 +14,8 @@ use App\User; /* User model */
 use Illuminate\Database\Eloquent\ModelNotFoundException; 
 
 
-class Controller extends BaseController
-{
+class Controller extends BaseController {
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected function formatValidationErrors(\Illuminate\Contracts\Validation\Validator $validator)
@@ -120,7 +120,7 @@ class ActionsController extends Controller
 {
     public function index()
         {
-            $actions = DB::select('select * from actions where id <99999');
+            $actions = DB::select('select * from actions');
 
             return response()->success(compact('actions'));
 
@@ -133,7 +133,7 @@ class IpCitiesController extends Controller
         {
             $cities = DB::select('select * from ip_cities');
 
-            return response()->success(compact('cities'));
+            return response()->json($cities);
 
         }
 }
@@ -141,9 +141,9 @@ class IpCountriesController extends Controller
 {
     public function index()
         {
-            $countries = DB::select('select * from ip_countries');
+            $countries = DB::select('select * from countries');
 
-            return response()->success(compact('countries'));
+            return response()->json($countries);
 
         }
 }
@@ -157,13 +157,12 @@ class IpStatesController extends Controller
 
         }
 }
-class IpAddressesController extends Controller
+class IpAddressController extends Controller
 {
     public function index()
         {
             $addresses = DB::select('select * from ip_addresses');
-
-            return response()->success(compact('ip-addresses'));
+            return response()->json($addresses);
 
         }
 }
